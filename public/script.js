@@ -37,7 +37,7 @@ function submitData(e) {
     // INSERT CODE SNIPPET FROM POSTMAN BELOW
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-   
+
 
     var raw = JSON.stringify({
         "text_to_summarize": text_to_summarize
@@ -68,4 +68,68 @@ function submitData(e) {
         .catch(error => {
             console.log(error.message);
         });
+}
+
+// image generator
+const promptArea = document.getElementById("image_to_text_prompt");
+
+const submitPromptButton = document.getElementById("submit-prompt-button");
+
+const generatedImageDescriptionArea = document.getElementById("image_description_area");
+
+submitButton.disabled = false;
+
+
+
+submitPromptButton.addEventListener("click", submitPromptData);
+
+
+
+function submitPromptData(e) {
+
+    // This is used to add animation to the submit button
+    submitPromptButton.classList.add("submit-button--loading");
+
+    const image_to_text_prompt = promptArea.value;
+
+    // INSERT CODE SNIPPET FROM POSTMAN BELOW
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+   
+
+
+    var raw = JSON.stringify({
+        "image_to_text_prompt": image_to_text_prompt
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    // Send the prompt to the server using fetch API
+
+    
+    fetch('/describe_image', requestOptions)
+    .then(response => response.text()) // Response will be image description
+    .then(description => {
+        // Do something with the description response from the back end API!
+
+        // Update the output text area with new summary
+        generatedImageDescriptionArea.value = description;
+
+        // Stop the spinning loading animation
+        submitPromptButton.classList.remove("submit-button--loading");
+
+    })
+    .catch(error => {
+        console.log(error.message);
+    });
+
+
+
+
 }

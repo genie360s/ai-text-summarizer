@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- AI Text Summarizer -->
     <h1>AI Text Summarizer!</h1>
     <p>Welcome to the AI Text Summarizer App! This app leverages the power of Artificial Intelligence APIs to provide
         concise summaries of long texts. Whether you have a lengthy article, research paper, or any other text document
@@ -26,6 +27,26 @@
         </div>
         <div class="text-box">
             <textarea id="summary" name="summarized_text" placeholder="Summarized text will appear here"></textarea>
+        </div>
+    </div>
+
+    <!-- AI Image generator -->
+
+    <h1>AI Image Descriptor</h1>
+    <p>Welcome to the AI Image Descriptor App! This app leverages the power of Artificial Intelligence APIs to provide
+        concise articulates your image prompt. Whether you have a ridiculous imagination, illustration , or any other image document
+        that you want to put a description, our app can assist you.</p>
+    <p class='red'>Simply paste your image url your prompt into the text area below and click the "Submit" button.</p>
+    <div class="container">
+        <div class="text-box">
+            <textarea id="image_to_text_prompt" name="image_to_text_prompt"
+                placeholder="paste image url  , get crazy"></textarea>
+            <button id="submit-prompt-button" class="submit-button">
+                <span class="submit-button-text">Describe Image</span>
+            </button>
+        </div>
+        <div class="text-box">
+            <textarea id="image_description_area" name="image_description_area" placeholder="Genarated Image description will appear here !"></textarea>
         </div>
     </div>
 
