@@ -29,7 +29,7 @@ let config = {
 
   try {
     const response = await axios.request(config);
-    return response.data[0].summary_text;
+    return response.data[0].generated_text;
   }
   catch (error) {
     console.log(error);
